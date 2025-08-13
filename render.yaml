@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: meme-radar-api
+    env: python
+    plan: free
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.src.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONPATH
+        value: .
+      - key: ALLOWED_ORIGINS
+        value: https://REPLACE_WITH_NETLIFY_DOMAIN   # update after first Netlify deploy
+
+

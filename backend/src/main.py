@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Dict, Any
@@ -5,12 +6,12 @@ from datetime import datetime, timedelta, timezone
 
 app = FastAPI(title="Meme Radar API")
 
+app = app  # clarify we already have `app`
+
+origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "*").split(",")]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://<MY_NETLIFY_SITE>.netlify.app",
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
