@@ -1,4 +1,12 @@
 fastapi
+uvicorn[standard]
+pydantic
+httpx
+pandas
+numpy
+loguru
+python-dotenv
+fastapi
 uvicorn
 
 
