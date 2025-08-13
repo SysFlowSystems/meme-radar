@@ -1,7 +1,6 @@
 [build]
-base = "web"
 publish = "web/dist"
-command = "npm ci && npm run build"
+command = "npm ci --prefix web && npm run build --prefix web"
 
 [build.environment]
 NODE_VERSION = "18"
