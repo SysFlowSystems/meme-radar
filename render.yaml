@@ -7,9 +7,9 @@ services:
     buildCommand: pip install -r backend/requirements.txt
     startCommand: uvicorn backend.src.main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: PYTHONPATH
-        value: .
+      - key: PYTHONUNBUFFERED
+        value: "1"
       - key: ALLOWED_ORIGINS
-        value: https://REPLACE_WITH_NETLIFY_DOMAIN   # update after first Netlify deploy
+        value: https://YOUR-NETLIFY-SITE.netlify.app,http://localhost:5173
 
 
