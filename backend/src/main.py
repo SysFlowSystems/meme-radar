@@ -41,6 +41,10 @@ def get_alerts_for_meme(meme_key: str) -> List[Dict[str, Any]]:
         {"meme": meme_key, "ts": ts[-2]["ts"], "count": int(ts[-2]["count"]) + 4},
     ]
 
+@app.get("/health")
+def health():
+    return {"ok": True}
+
 @app.get("/timeseries/{meme_key}")
 def timeseries(meme_key: str) -> List[Dict[str, Any]]:
     return get_timeseries_for_meme(meme_key, num_points=10)
