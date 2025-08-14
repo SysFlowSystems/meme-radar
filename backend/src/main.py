@@ -8,7 +8,13 @@ app = FastAPI(title="Meme Radar API")
 
 app = app  # clarify we already have `app`
 
-origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "*").split(",")]
+# Explicit CORS for Netlify + local dev (can still be overridden by ALLOWED_ORIGINS)
+default_origins = [
+    "https://ovira.netlify.app",
+    "http://localhost:5173",
+]
+env_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "").split(",") if o.strip()]
+origins = env_origins if env_origins else default_origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
