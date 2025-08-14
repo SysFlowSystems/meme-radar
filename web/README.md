@@ -25,7 +25,12 @@ npm run preview
 
 ## API URL
 
-The default API URL is `http://localhost:8088`. To change it, set `VITE_API_URL` in `.env` or use the TopBar input to update and persist.
+Use `VITE_API_BASE` to point to the FastAPI backend.
+
+- Netlify/Render: `VITE_API_BASE=https://meme-radar.onrender.com`
+- Local dev: `VITE_API_BASE=http://127.0.0.1:8088`
+
+You can also edit the URL in the app’s top bar; it persists in localStorage.
 
 ## Netlify
 
