@@ -6,6 +6,12 @@ command = "npm ci --prefix web && npm run build --prefix web"
 NODE_VERSION = "18"
 
 [[redirects]]
+  from = "/api/*"
+  to = "https://REPLACE_WITH_RENDER_URL/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
