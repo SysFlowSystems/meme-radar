@@ -1,7 +1,8 @@
 // Lightweight API client with optional mock mode
 // Reads default base URL from Vite env, falls back to Netlify proxy path /api
 
-let baseUrl = import.meta.env.VITE_API_BASE || '/api';
+import { API_BASE } from '../lib/config.ts';
+let baseUrl = API_BASE;
 let mockMode = false;
 
 export function setBaseUrl(url) {
