@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
+import { API_BASE } from '../lib/config.ts';
 
 const STORAGE_KEY = 'meme-radar-settings-v1';
-const DEFAULT_API = (import.meta.env.VITE_API_BASE) || '/api';
+const DEFAULT_API = (import.meta.env.VITE_API_BASE) || API_BASE;
 
 const DEFAULT_SETTINGS = {
   apiUrl: DEFAULT_API,
